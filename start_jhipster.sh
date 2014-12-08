@@ -11,8 +11,8 @@ mkdir -p /Volumes/jhipster
 mount -t smbfs //guest:@192.168.59.103/jhipster /Volumes/jhipster
 df -k -T smbfs
 
-ln -s /Volumes/jhipster .
+ln -s /Volumes/jhipster /Users/elzinko/Devs/projects/mystore
 
-cat ~/.ssh/id_rsa.pub | ssh -p 4022 jhipster@localhost 'mkdir ~/.ssh && cat >> ~/.ssh/authorized_keys'
+cat ~/.ssh/id_boot2docker.pub | ssh -p 4022 jhipster@localhost 'mkdir ~/.ssh && cat >> ~/.ssh/authorized_keys'
 
 docker ps

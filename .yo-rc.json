@@ -1,0 +1,18 @@
+{
+  "generator-jhipster": {
+    "baseName": "mystore",
+    "packageName": "fr.couderc.thomas.sarl.mystore",
+    "packageFolder": "fr/couderc/thomas/sarl/mystore",
+    "authenticationType": "token",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "atmosphere",
+    "databaseType": "nosql",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "useCompass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8"
+  }
+}

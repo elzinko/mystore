@@ -6,6 +6,7 @@
 #VBoxManage modifyvm "boot2docker-vm" --natpf1 "containertomcat,tcp,,8080,,8080"
 #VBoxManage modifyvm "boot2docker-vm" --natpf1 "containergruntserver,tcp,,9000,,9000"
 #VBoxManage modifyvm "boot2docker-vm" --natpf1 "containergruntreload,tcp,,35729,,35729"
+#VBoxManage modifyvm "boot2docker-vm" --natpf1 "guestmongodb,tcp,127.0.0.1,27017,,27017"
 
 boot2docker up
 
