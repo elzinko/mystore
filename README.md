@@ -1,2 +1,5 @@
-README for mystore
-==========================
+=======
+mystore
+=======
+
+Coolest store discovering app
