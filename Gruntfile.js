@@ -1,4 +1,4 @@
-// Generated on 2014-12-08 using generator-jhipster 1.10.1
+// Generated on 2014-12-09 using generator-jhipster 1.10.1
 'use strict';
 
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
@@ -103,7 +103,14 @@ module.exports = function (grunt) {
                     port: 8080,
                     https: false,
                     changeOrigin: false
-                }
+                },
+                {
+                    context: '/console',
+                    host: 'localhost',
+                    port: 8080,
+                    https: false,
+                    changeOrigin: false
+                 }
             ],
             options: {
                 port: 9000,
