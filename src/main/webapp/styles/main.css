@@ -1,13 +1,12 @@
-$icon-font-path: "../bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap/";
-
-@import './bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss';
-
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
 
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
 .development {
     position: absolute;
     width: 149px;
@@ -21,6 +20,9 @@ body {
     background-repeat: no-repeat;
 }
 
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -72,11 +74,35 @@ only screen and (                min-resolution: 2dppx) {
     }
 }
 
-/* make sure browsers use the pointer cursor for anchors, even with no href */
-a:hover {
-  cursor: pointer;
+.hand {
+    cursor: pointer;
 }
 
+#threadDump .popover, #healthCheck .popover {
+    top: inherit;
+    display: block;
+    font-size: 10px;
+    max-width: 1024px;
+}
+
+#healthCheck .popover {
+    margin-left: -50px;
+}
+
+.alert .popover pre {
+    font-size: 10px;
+}
+
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
 
 /* start Password strength bar style */
 ul#strength {

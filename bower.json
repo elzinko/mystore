@@ -2,8 +2,6 @@
   "name": "mystore",
   "version": "0.0.0",
   "dependencies": {
-    "atmosphere": "2.2.5",
-    "jquery-atmosphere": "2.2.5",
     "bootstrap-sass": "twbs/bootstrap-sass#~3.1.1",
     "modernizr": "2.7.1",
     "jquery": "2.1.1",
