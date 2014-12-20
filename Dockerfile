@@ -48,18 +48,13 @@ RUN groupadd jhipster && useradd jhipster -s /bin/bash -m -g jhipster -G jhipste
 RUN echo 'jhipster:jhipster' |chpasswd
 
 # clone mystore project into the container
-RUN mkdir -p /home/mystore && \
-    cd /home/mystore
+RUN mkdir -p /home/mystore && cd /home/mystore
 
-#RUN git clone https://github.com/elzinko/mystore.git
+RUN git clone https://github.com/elzinko/mystore.git
 
-#RUN cd /home/mystore/mystore && npm install
-#RUN cd /home && chown -R jhipster:jhipster /home/mystore
-#RUN cd /home/mystore/mystore && sudo -u jhipster mvn dependency:go-offline
-
-# install nginx
-#RUN apt-get install -y nginx
-#RUN apt-get install -y supervisor
+RUN cd /home/mystore/mystore && npm install
+RUN cd /home && chown -R jhipster:jhipster /home/mystore
+RUN cd /home/mystore/mystore && sudo -u jhipster mvn dependency:go-offline
 
 # expose the working directory, the Tomcat port, the Grunt server port, the SSHD port, and run SSHD
 VOLUME ["/mystore"]
@@ -68,3 +63,19 @@ EXPOSE 9000
 EXPOSE 22
 CMD    /usr/sbin/sshd -D
 
+# install nginx
+#RUN apt-get install -y nginx
+#RUN apt-get install -y supervisor
+
+# update working directories
+#ADD ./config /config
+
+# setup config
+#RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
+#RUN rm /etc/nginx/sites-enabled/default
+
+#RUN ln -s /config/nginx.conf /etc/nginx/sites-enabled/
+#RUN ln -s /config/supervisor.conf /etc/supervisor/conf.d/
+
+#EXPOSE 80
+#CMD ["supervisord", "-n"]
