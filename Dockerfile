@@ -24,10 +24,6 @@ RUN apt-get -y install oracle-java8-installer && apt-get clean
 RUN update-java-alternatives -s java-8-oracle
 RUN echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> ~/.bashrc
 
-# install nginx
-RUN apt-get install -y nginx
-RUN apt-get install -y supervisor
-
 # install utilities
 RUN apt-get -y install vim git sudo zip bzip2 fontconfig curl
 
@@ -39,9 +35,11 @@ RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
 RUN apt-get -y install nodejs
 
+RUN npm -v
+
 # install yeoman, bower and jhipster
 RUN npm install -g yo
-RUN npm install -g bower
+#RUN npm install -g bower
 RUN npm install -g generator-jhipster@1.10.2
 
 # configure the "jhipster" and "root" users
@@ -51,12 +49,17 @@ RUN echo 'jhipster:jhipster' |chpasswd
 
 # clone mystore project into the container
 RUN mkdir -p /home/mystore && \
-    cd /home/mystore && \
-    git clone https://github.com/elzinko/mystore.git
+    cd /home/mystore
 
-RUN cd /home/mystore/mystore && npm install
-RUN cd /home && chown -R jhipster:jhipster /home/mystore
-RUN cd /home/mystore/mystore && sudo -u jhipster mvn dependency:go-offline
+#RUN git clone https://github.com/elzinko/mystore.git
+
+#RUN cd /home/mystore/mystore && npm install
+#RUN cd /home && chown -R jhipster:jhipster /home/mystore
+#RUN cd /home/mystore/mystore && sudo -u jhipster mvn dependency:go-offline
+
+# install nginx
+#RUN apt-get install -y nginx
+#RUN apt-get install -y supervisor
 
 # expose the working directory, the Tomcat port, the Grunt server port, the SSHD port, and run SSHD
 VOLUME ["/mystore"]
