@@ -52,16 +52,16 @@ RUN mkdir -p /home/mystore && cd /home/mystore
 
 RUN git clone https://github.com/elzinko/mystore.git
 
-RUN cd /home/mystore/mystore && npm install
-RUN cd /home && chown -R jhipster:jhipster /home/mystore
-RUN cd /home/mystore/mystore && sudo -u jhipster mvn dependency:go-offline
+#RUN cd /home/mystore/mystore && npm install
+#RUN cd /home && chown -R jhipster:jhipster /home/mystore
+#RUN cd /home/mystore/mystore && sudo -u jhipster mvn dependency:go-offline
 
 # expose the working directory, the Tomcat port, the Grunt server port, the SSHD port, and run SSHD
-VOLUME ["/mystore"]
-EXPOSE 8080
-EXPOSE 9000
-EXPOSE 22
-CMD    /usr/sbin/sshd -D
+#VOLUME ["/mystore"]
+#EXPOSE 8080
+#EXPOSE 9000
+#EXPOSE 22
+#CMD    /usr/sbin/sshd -D
 
 # install nginx
 #RUN apt-get install -y nginx
