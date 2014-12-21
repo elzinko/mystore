@@ -25,7 +25,7 @@ RUN update-java-alternatives -s java-8-oracle
 RUN echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> ~/.bashrc
 
 # install utilities
-RUN apt-get -y install vim git sudo zip bzip2 fontconfig curl
+RUN apt-get -y install vim sudo zip bzip2 fontconfig curl
 
 # install maven
 RUN apt-get -y install maven
@@ -50,18 +50,33 @@ RUN echo 'jhipster:jhipster' |chpasswd
 # clone mystore project into the container
 RUN mkdir -p /home/mystore && cd /home/mystore
 
-RUN git clone https://github.com/elzinko/mystore.git
+# Install git
+RUN apt-get install -y git
 
-#RUN cd /home/mystore/mystore && npm install
-#RUN cd /home && chown -R jhipster:jhipster /home/mystore
-#RUN cd /home/mystore/mystore && sudo -u jhipster mvn dependency:go-offline
+RUN mkdir -p /root/.ssh
+ADD mystore-key /root/.ssh/id_rsa
+RUN chmod 700 /root/.ssh/id_rsa
+RUN ls -al /root/.ssh
+RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
+RUN git clone git@github.com:elzinko/mystore.git /home/mystore
+
+#ADD mystore-key /
+#RUN \
+#  chmod 600 /mystore-key && \
+#  echo "IdentityFile /mystore-key" >> /etc/ssh/ssh_config && \
+#  echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+#RUN git clone https://github.com/elzinko/mystore.git
+
+RUN cd /home/mystore && npm install
+RUN cd /home && chown -R jhipster:jhipster /home/mystore
+RUN cd /home/mystore && sudo -u jhipster mvn dependency:go-offline
 
 # expose the working directory, the Tomcat port, the Grunt server port, the SSHD port, and run SSHD
-#VOLUME ["/mystore"]
-#EXPOSE 8080
-#EXPOSE 9000
-#EXPOSE 22
-#CMD    /usr/sbin/sshd -D
+VOLUME ["/mystore"]
+EXPOSE 8080
+EXPOSE 9000
+EXPOSE 22
+CMD    /usr/sbin/sshd -D
 
 # install nginx
 #RUN apt-get install -y nginx
