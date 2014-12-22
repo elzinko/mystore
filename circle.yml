@@ -23,12 +23,11 @@ test:
     #- mvn clean test
 
 deployment:
-  #hub:
-  #  branch: master
-  #  commands:
-  #    - $DEPLOY
-
   staging:
     branch: master
     heroku:
       appname: myownstore
+  #hub:
+  #  branch: master
+  #  commands:
+  #    - $DEPLOY
