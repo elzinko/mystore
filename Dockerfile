@@ -1,5 +1,5 @@
 # Dockerizing mystore: Dockerfile for building mystore images
-# Based on ubuntu:latest
+# Based on ubuntu:14.04
 
 FROM      ubuntu:14.04
 MAINTAINER Thomas Couderc <thomas.couderc@gmail.com>
