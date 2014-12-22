@@ -27,3 +27,8 @@ deployment:
     branch: master
     commands:
       - $DEPLOY
+
+  staging:
+    branch: master
+    heroku:
+      appname: mystore
