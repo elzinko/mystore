@@ -8,13 +8,13 @@ machine:
 
 dependencies:
   cache_directories:
-    - "~/docker"
+    - "/home/ubuntu/docker"
 
   override:
     - docker info
-    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - if [[ -e /home/ubuntu/docker/image.tar ]]; then docker load -i /home/ubuntu/docker/image.tar; fi
     - docker build -t elzinko/mystore .
-    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - if [[ -e /home/ubuntu/docker/image.tar ]]; then docker load -i /home/ubuntu/docker/image.tar; fi
 
 test:
   override:
@@ -31,4 +31,4 @@ deployment:
   staging:
     branch: master
     heroku:
-      appname: mystore
+      appname: myownstore
