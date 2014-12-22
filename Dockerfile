@@ -95,4 +95,4 @@ CMD    /usr/sbin/sshd -D
 #EXPOSE 80
 #CMD ["supervisord", "-n"]
 
-RUN mkdir -p /home/ubuntu/docker
+RUN mkdir -p ~/docker

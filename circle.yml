@@ -8,13 +8,13 @@ machine:
 
 dependencies:
   cache_directories:
-    - "/home/ubuntu/docker"
+    - "~/docker"
 
   override:
     - docker info
-    - if [[ -e /home/ubuntu/docker/image.tar ]]; then docker load -i /home/ubuntu/docker/image.tar; fi
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
     - docker build -t elzinko/mystore .
-    - if [[ -e /home/ubuntu/docker/image.tar ]]; then docker load -i /home/ubuntu/docker/image.tar; fi
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
 
 test:
   override:
@@ -23,10 +23,10 @@ test:
     #- mvn clean test
 
 deployment:
-  hub:
-    branch: master
-    commands:
-      - $DEPLOY
+  #hub:
+  #  branch: master
+  #  commands:
+  #    - $DEPLOY
 
   staging:
     branch: master
