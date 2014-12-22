@@ -7,15 +7,21 @@ machine:
     - docker
 
 dependencies:
+  cache_directories:
+    - "~/docker"
+
   override:
     - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
     - docker build -t elzinko/mystore .
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
 
 test:
   override:
     - docker run -d -p 8080:8080 elzinko/mystore; sleep 10
     #- curl --retry 10 --retry-delay 5 -v http://localhost:8080
     #- mvn clean test
+
 deployment:
   hub:
     branch: master
