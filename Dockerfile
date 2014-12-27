@@ -58,14 +58,7 @@ ADD mystore-key /root/.ssh/id_rsa
 RUN chmod 700 /root/.ssh/id_rsa
 RUN ls -al /root/.ssh
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
-RUN git clone git@github.com:elzinko/mystore.git /home/mystore
-
-#ADD mystore-key /
-#RUN \
-#  chmod 600 /mystore-key && \
-#  echo "IdentityFile /mystore-key" >> /etc/ssh/ssh_config && \
-#  echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
-#RUN git clone https://github.com/elzinko/mystore.git
+RUN git clone git@github.com:elzinko/mystore-jhipster.git /home/mystore
 
 RUN cd /home/mystore && npm install
 RUN cd /home && chown -R jhipster:jhipster /home/mystore
