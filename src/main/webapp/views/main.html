@@ -37,6 +37,17 @@
             <p>
              <span translate="main.like">If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank" translate="main.github">Github</a>!
             </p>
+
+            <p>
+                <div infinite-scroll='placehold.nextPage()' infinite-scroll-disabled='placehold.busy' infinite-scroll-distance='0'>
+                    <div masonry>
+                        <div class="masonry-brick" ng-repeat="image in placehold.images">
+                            <img ng-src="{{image}}">
+                        </div>
+                        <div ng-show='placehold.busy'>Loading data...</div>
+                    </div>
+                </div>
+            </p>
         </div>
     </div>
 </div>

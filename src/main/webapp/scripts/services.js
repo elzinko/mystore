@@ -165,7 +165,7 @@ mystoreApp.factory('AuthenticationSharedService', function ($rootScope, $http, a
                     AccessToken.remove();
                     delete httpHeaders.common['Authorization'];
                     $rootScope.$broadcast('event:auth-loginRequired', data);
-                    
+
                 });
             },
             valid: function (authorizedRoles) {
@@ -239,3 +239,25 @@ mystoreApp.factory('AuthenticationSharedService', function ($rootScope, $http, a
             }
         };
     });
+
+mystoreApp.factory('Placehold', function () {
+    var Placehold = function () {
+        this.busy = false;
+        this.images = [];
+    };
+
+    Placehold.prototype.nextPage = function () {
+        if (this.busy) return;
+        this.busy = true;
+
+        var last = this.images[this.images.length - 1];
+        for (var i = 1; i <= 2; i++) {
+            var height = ~~(Math.random() * 500) + 100;
+            var id = ~~(Math.random() * 10000);
+            this.images.push('http://lorempixel.com/g/280/' + height + '/?' + id);
+        }
+        this.busy = false;
+    };
+
+    return Placehold;
+});

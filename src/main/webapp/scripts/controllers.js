@@ -2,8 +2,23 @@
 
 /* Controllers */
 
-mystoreApp.controller('MainController', function ($scope) {
+mystoreApp.controller('MainController', function ($scope, Placehold) {
+    $scope.placehold = new Placehold();
     });
+
+/*mystoreApp.controller('MainController', function ($scope, Authentication, Placehold) {
+        // This provides Authentication context.
+        $scope.authentication = Authentication;
+        $scope.placehold = new Placehold();
+    });*/
+
+/*mystoreApp.controller('MainController',
+    function ($scope, Authentication, Placehold) {
+        // This provides Authentication context.
+        $scope.authentication = Authentication;
+        $scope.placehold = new Placehold();
+    }
+]);*/
 
 mystoreApp.controller('AdminController', function ($scope) {
     });
@@ -303,3 +318,5 @@ mystoreApp.controller('AuditsController', function ($scope, $translate, $filter,
             $scope.audits = data;
         });
     });
+
+

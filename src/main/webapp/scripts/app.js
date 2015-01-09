@@ -4,7 +4,7 @@
 var httpHeaders;
 
 var mystoreApp = angular.module('mystoreApp', ['http-auth-interceptor', 'tmh.dynamicLocale',
-    'ngResource', 'ngRoute', 'ngCookies', 'mystoreAppUtils', 'pascalprecht.translate', 'truncate', 'ngCacheBuster']);
+    'ngResource', 'ngRoute', 'ngCookies', 'mystoreAppUtils', 'pascalprecht.translate', 'truncate', 'ngCacheBuster', 'infinite-scroll', 'afkl.lazyImage', 'wu.masonry']);
 
 mystoreApp
     .config(function ($routeProvider, $httpProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, USER_ROLES) {
