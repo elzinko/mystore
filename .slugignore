@@ -1,1 +1,12 @@
 package.json
+deploy
+start_jhipster.sh
+start_boot2docker.sh
+start_mysql.sh
+stop_boot2docker.sh
+stop_jhipster.sh
+stop_mysql.sh
+stop_mysql.sh
+mongod
+mystore-key
+mystore-key.pub
